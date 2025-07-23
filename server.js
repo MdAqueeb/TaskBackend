@@ -1,4 +1,4 @@
-// server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/users.js');
@@ -16,7 +16,7 @@ app.use(cors({
   credentials: true                         
 }));
 
-app.use(express.json({ limit: '50mb' })); // or larger as needed
+app.use(express.json({ limit: '50mb' })); 
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/api', userRoutes);
