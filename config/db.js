@@ -22,6 +22,13 @@ const mongoURI = "mongodb+srv://Ahmed:test123@aqueeb.megegyh.mongodb.net/test";
 async function connectDB() {
   try {
     await mongoose.connect(mongoURI);
+    await mongoose.connection.db.command({ ping: 1 });
+    await mongoose.connection.db.command({ serverStatus: 1 });
+    await mongoose.connection.db.command({ listCollections: 1 });
+    await mongoose.connection.db.command({ isMaster: 1 });
+    await mongoose.connection.db.command({ buildInfo: 1 });
+    const users = await mongoose.model("User").find();
+    console.log("Users data:", users);
     console.log("MongoDB connected successfully using SRV.");
   } catch (err) {
     console.error("MongoDB connection error:", err);

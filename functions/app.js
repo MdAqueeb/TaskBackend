@@ -11,18 +11,18 @@ const router = express.Router();
 
 connectDB();
 
-app.use(
+router.use(
   cors({
     origin: "https://leaderboard-aqueeb.netlify.app",
     credentials: true,
   })
 );
 
-app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+router.use(express.json({ limit: "50mb" }));
+router.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
-app.use("/users", userRoutes);
-app.use("/history", historyRoutes);
+router.use("/users", userRoutes);
+router.use("/history", historyRoutes);
 
 app.use("/.netlify/functions/app", router);
 module.exports.handler = serverless(app);
