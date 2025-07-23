@@ -2,7 +2,10 @@
   functions = "functions"
 
 
+
 [[redirects]]
-  from = "/users/*"
-  to = "/.netlify/functions/api/users/:splat"
+  from = "/api/*"
+  to = ".netlify/functions/app/:splat"
   status = 200
+  force = true
+  headers = {Access-Control-Allow-Origin = "*"}
