@@ -1,7 +1,4 @@
-[build]
-  functions = "functions"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/express"
-  status = 200
+    [[redirects]]
+      from = "api/*"
+      to = "/index.html"
+      status = 200
