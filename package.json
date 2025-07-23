@@ -1,9 +1,10 @@
 {
   "name": "taskbacked",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this repo i create some endpoints like add and select users, claim endpoint it provide random points from 1 to 10, by the help of point we provide ranks to them",
   "main": "index.js",
   "scripts": {
+    "build": "netlify deploy --prod",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -14,6 +15,17 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "mongoose": "^8.16.4"
-  }
+    "mongoose": "^8.16.4",
+    "netlify-cli": "^22.3.0",
+    "netlify-lambda": "^0.4.0",
+    "serverless-http": "^3.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdAqueeb/TaskBackend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MdAqueeb/TaskBackend/issues"
+  },
+  "homepage": "https://github.com/MdAqueeb/TaskBackend#readme"
 }
