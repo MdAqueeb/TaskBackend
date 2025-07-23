@@ -13,7 +13,7 @@ exports.addHistory = async (req, res) => {
 
 exports.getHistory = async (req, res) => {
   try {
-    const history = await History.find().populate('userId', 'name');
+    const history = await History.find().populate('userId', 'name profilePicture');
     res.status(200).json(history);
   } catch (err) {
     res.status(409).json({ error: 'Failed to retrieve history' });
