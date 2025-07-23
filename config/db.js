@@ -1,4 +1,3 @@
-
 // const mongoose = require('mongoose');
 
 // const connectDB = async () => {
@@ -10,38 +9,32 @@
 //   //   console.log('MongoDB connected');
 //   // } catch (err) {
 //   //   console.error('MongoDB connection error:', err.message);
-//   //   process.exit(1); 
+//   //   process.exit(1);
 //   // }
 
-  
 // };
 
+const mongoose = require("mongoose");
 
+// Replace with your actual MongoDB Atlas SRV connection string
+const mongoURI = "mongodb+srv://Ahmed:test123@aqueeb.megegyh.mongodb.net/test";
 
-    const mongoose = require('mongoose');
+async function connectDB() {
+  try {
+    await mongoose.connect(mongoURI);
+    console.log("MongoDB connected successfully using SRV.");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+    process.exit(1); // Exit process with failure
+  }
+}
 
-    // Replace with your actual MongoDB Atlas SRV connection string
-    const mongoURI = 'mongodb+srv://Ahmed:GsP1rAUh3XZ3YlyT@aqueeb.megegyh.mongodb.net/?retryWrites=true&w=majority&appName=Aqueeb';
+// Optional: Event listeners for connection status
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongoose disconnected from MongoDB.");
+});
 
-    async function connectDB() {
-        try {
-            await mongoose.connect(mongoURI);
-            console.log('MongoDB connected successfully using SRV.');
-        } catch (err) {
-            console.error('MongoDB connection error:', err);
-            process.exit(1); // Exit process with failure
-        }
-    }
-
-
-    // Optional: Event listeners for connection status
-    mongoose.connection.on('disconnected', () => {
-        console.log('Mongoose disconnected from MongoDB.');
-    });
-
-    mongoose.connection.on('error', (err) => {
-        console.error('Mongoose connection error after initial connection:', err);
-    });
+mongoose.connection.on("error", (err) => {
+  console.error("Mongoose connection error after initial connection:", err);
+});
 module.exports = connectDB;
-
-
