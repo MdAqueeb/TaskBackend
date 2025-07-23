@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'https://leaderboard-aqueeb.netlify.app/',    
+  origin: 'https://leaderboard-aqueeb.netlify.app',    
   credentials: true                         
 }));
 
